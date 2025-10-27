@@ -1,22 +1,26 @@
 import os
 
-# 기본 경로 설정 (가장 중요)
+# 기능 활성화 스위치
+ENABLE_GUI = True       # True: 실시간 GUI (cv2.imshow) 창을 출력
+ENABLE_SAVE = False      # True: 주기적 이미지 저장을 활성화
+
+
+# 기본 경로 설정
 BASE_PATH = os.path.abspath(os.path.dirname(__file__))
 # 원본 이미지를 저장할 폴더 경로 (BASE_PATH 기준)
 SAVE_PATH_ORIGINAL = os.path.join(BASE_PATH, "captures", "origin")
 # 탐지 결과(BBox)가 그려진 이미지를 저장할 폴더 경로
 SAVE_PATH_DETECTED = os.path.join(BASE_PATH, "captures", "detected")
 
-# 카메라 및 모델 설정
-CAM_WIDTH = 640
-CAM_HEIGHT = 480
-CAM_FPS = 10
+# 카메라 설정
+CAM_WIDTH = 3280 
+CAM_HEIGHT = 2464
+CAM_FPS = 1
 
-MODEL_PATH = "best_openvino_model"
-
-# 기능 활성화 스위치
-ENABLE_GUI = False       # True: 실시간 GUI (cv2.imshow) 창을 출력
-ENABLE_SAVE = True      # True: 주기적 이미지 저장을 활성화
+# 모델 관련 설정정
+MODEL_PATH = "pest_openvino_model"
+YOLO_CONF = 0.5
+YOLO_INTERVAL_SEC = 3.0
 
 # 저장 설정
 SAVE_INTERVAL = 10      # 이미지를 저장할 간격 (초)
@@ -36,6 +40,6 @@ SLEEP_CAPTURE_ERROR = 0.1
 SLEEP_MAIN_NO_GUI = 0.1
 
 # 시각화(BBox) 설정
-GUI_WINDOW_NAME = "YOLO Live Feed (RPi4)"
-BBOX_COLOR = (255, 0, 0)
-BBOX_THICKNESS = 2
+GUI_WINDOW_NAME = "Pest Detection Live Feed"
+#BBOX_COLOR = (0, 0, 255)    # BGR
+#BBOX_THICKNESS = 2
