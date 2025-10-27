@@ -30,6 +30,7 @@ logs/
 *.webm
 # label txt 파일
 *.txt
+*.zip
 # 만약 데이터셋 폴더를 사용한다면
 # */dataset/
 # data/
